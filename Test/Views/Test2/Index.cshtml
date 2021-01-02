@@ -1,0 +1,137 @@
+﻿@model Test.Models.OrderDetail
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<h2 class="">Add New Product</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>
+                <div class="form-group">
+                    @Html.Label("Catagory", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <select class="form-control" id="productCategory" onchange="LoadProduct(this)">
+                            <option selected value="">-Select Catagori-</option>
+                        </select>
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="form-group">
+                    @Html.Label("Product", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <select class="form-control" id="product"> 
+                            <option selected value="">-Select Product-</option>
+                        </select>
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="form-group">
+                    @Html.Label("Rate", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input class="form-control" type="number" placeholder="Rate" id="rate" />
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    @Html.Label("Quantity", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input class="form-control" type="number" placeholder="quantity" id="quantity" />
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="button" class="form-control btn btn-default add-record" value="Add Row" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<h3></h3>
+
+
+
+<h2 class="">Product Wise Mill Grid</h2>
+<table style="display:none" id="sample_table">
+    <tr>
+        <td><span class="sn"></span>.</td>
+        @*<td class="Member">MemberName</td>*@
+        @*<td class="CategoryID" style="display:none">catagory ID</td>*@
+        <td class="product">product ID</td>
+        <td class="rate">100</td>
+        <td class="quantity">1</td>
+        <td><a class="btn btn-xs delete-record" data-id="0"><i class="glyphicon glyphicon-trash"></i></a></td>
+        <td><a class="btn btn-xs edit-record" data-id="0"><i class="glyphicon glyphicon-edit"></i></a></td>
+    </tr>
+</table>
+
+<table class="table table-striped" id="resultTable">
+    <thead>
+        <tr>
+            <th> SL No.</th>
+            <th>
+                @Html.LabelFor(model => model.ProductID, htmlAttributes: new { @class = "control-label col-md-2" })
+            </th>
+            <th style="display:none">
+
+            </th>
+            <th>
+                @Html.LabelFor(model => model.Rate, htmlAttributes: new { @class = "control-label col-md-2" })
+            </th>
+            <th>
+                @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody id="resultTable_body">
+        <tr>
+        </tr>
+    </tbody>
+    <tr>
+        <td></td>
+        <td></td>
+        <td style="display:none"></td>
+        <td>@*totalMorning : <span class="info" id="totalMorning"></span>*@ </td>
+        <td>@*totalLunch : <span class="info" id="totalLunch"></span>*@</td>
+        <td>@*totalDinner : <span class="info" id="totalDinner"></span>*@</td>
+        <td></td>
+    </tr>
+</table>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="button" value="Save" id="saveData()" class="btn btn-default" onclick="saveData()" />
+        @*<input class="btn-default" type="button" id="btnSave" value="Save" onclick="saveData()" />*@
+    </div>
+</div>
+
+<hr />
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @*<script src="~/Scripts/myScripts.js"></script>*@
+    <script src="~/Scripts/JSLoad.js"></script>
+}

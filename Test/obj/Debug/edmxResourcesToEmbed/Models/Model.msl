@@ -13,7 +13,6 @@
       <EntityTypeMapping TypeName="AdvMasterDetailsModel.OrderDetail">
         <MappingFragment StoreEntitySet="OrderDetails">
           <ScalarProperty Name="OrderDetialsID" ColumnName="OrderDetialsID" />
-          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
           <ScalarProperty Name="Rate" ColumnName="Rate" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />

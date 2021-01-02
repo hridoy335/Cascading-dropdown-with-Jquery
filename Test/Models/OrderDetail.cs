@@ -15,11 +15,8 @@ namespace Test.Models
     public partial class OrderDetail
     {
         public int OrderDetialsID { get; set; }
-        public int OrderID { get; set; }
         public int ProductID { get; set; }
         public decimal Rate { get; set; }
         public int Quantity { get; set; }
-    
-        public virtual OrderMaster OrderMaster { get; set; }
     }
 }
